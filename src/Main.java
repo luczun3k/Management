@@ -1,12 +1,17 @@
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
-        User user = new User(1l, "admin", "admin", "admin@test.com");
-        System.out.println("User id: " + user.getId() + ", user login: " + user.getLogin() +
-                ", user password: "+user.getPassword());
+        UserService userService = new UserService(Arrays.asList(
+                new User("admin", "admin"),
+                new User("pablo", "escabo"),
+                new User("kasia", "zyt"),
+                new User("ufo", "porno")
+        ));
 
-        user.setLogin("nowy-admin");
-        user.setPassword("admin-password");
+        User secondPablo = userService.getUserByLoginReturnsDefaultObject("pablo-2");
+        System.out.println("second pablo: " + secondPablo.getPassword());
 
 
 

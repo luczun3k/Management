@@ -17,6 +17,6 @@ public class Cloth extends Product{
     }
 
     public String getMaterial() {
-        return material;ś
+        return material;
     }
 }

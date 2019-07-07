@@ -1,18 +1,14 @@
 public class User {
 
-    private Long id;
     private String login;
     private String password;
 
-    public User(Long id, String login, String password, String email){
-        this.id = id;
+    public User(String login, String password){
         this.login = login;
         this.password = password;
     }
 
-    public Long getId(){
-        return id;
-    }
+    public final static User DEFAULT_USER = new User("annonymous", "password");
 
     public String getLogin(){
         return login;
@@ -28,4 +24,13 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
+
 }
