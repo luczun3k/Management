@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Optional;
 
 public class UserService {
     private List<User> users;
@@ -23,6 +24,22 @@ public class UserService {
             }
         }
         return User.DEFAULT_USER;
+    }
+
+    public Optional<User> getUserByLoginReturnsOptional(String login) {
+        for (User user : users) {
+            if (user.getLogin().equals(login)){
+                return Optional.of(user);
+            }
+        }
+
+        return Optional.empty();
+    }
+
+    public Optional<User> getUserByLoginReturnsOptionalUsingStreams(String login) {
+        return users.stream()
+                .filter(user -> user.getLogin().equals(login))
+                .findFirst();
     }
 
 }
